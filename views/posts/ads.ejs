@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head> <% include ../static/head %> </head>
+<body>
+<header>
+
+</header>
+<div class="posts">
+    <!-- main start-->
+
+    <!-- views/posts/index.ejs -->
+    <div class="index">
+        <h3><a href="/posts">공지사항,QNA 보러가기</a></h3>
+        <a href="/question"><button>New</button></a>
+        <% if(user) {%>
+            <a href="/logout" class="float_right"><button>Logout</button></a>
+            <a href="/users/<%= user._id %>" class="float_right"><button>My Profile (<%= user.nickname %>)</button></a>
+        <% } else { %>
+            <a href="/login" class="float_right"><button>Login</button></a>
+            <a href="/users/new" class="float_right"><button>Sign Up</button></a>
+        <% } %>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>기업명</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Description</th>
+                <th>CreatedAt</th>
+                <th>Files</th>
+                <th>Downloads</th>
+            </thead>
+            <tbody>
+
+            <% var j=data.length;%>
+                <% data.forEach(function(e){ %>
+            <tr>
+                <td><%= j-- %></td>
+                <td> <%= e.corp_name %></td>
+                <td> <%= e.type%></td>
+                <td> <%= e.name%></td>
+                <td> <%= e.email%></td>
+                <td> <%= e.phone%></td>
+                <td> <%= e.description%></td>
+                <td> <%= e.createdAt.toLocaleString()%></td>
+                <td> <a href="https://benepicturead.s3.ap-northeast-2.amazonaws.com/<%= e.imageFileName[0]%>"> [1] </a> <a href="https://benepicturead.s3.ap-northeast-2.amazonaws.com/<%= e.imageFileName[1]%>"> [2] </a> <a href="https://benepicturead.s3.ap-northeast-2.amazonaws.com/<%= e.imageFileName[2]%>"> [3] </a> </td>
+                <td> [1] [2] [3]</td>
+            </tr>
+            <% })%>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- main end -->
+</div><!--posts end -->
+<footer>
+
+</footer>
+</body>
+</html>

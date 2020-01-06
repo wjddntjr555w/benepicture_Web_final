@@ -1,0 +1,22 @@
+<a class="header_title" href="/" target="_self">
+    <img id="logo" src="/images/bp_logo.png">
+</a>
+
+<nav class="header_nav">
+    <a href="/notice" target="_self" id="nav_notice">공지사항</a>
+<!--    <a href="/about" target="_self">베네픽쳐란?</a>-->
+    <a href="/contact" target="_self" id="nav_contact">CONTACT</a>
+    <a href="/question" target="_self" id="nav_question">광고신청</a>
+    <a href="/ask" target="_self" id="nav_ask">문의하기</a>
+<!--    <a href="/qna" target="_self">FAQ</a>-->
+</nav>
+
+<script>
+
+    var subtitle = "<%= subtitle%>";
+
+    if(subtitle === "공지사항")     document.getElementById("nav_notice").style.textDecoration = "underline";
+    else if(subtitle === "CONTACT US") document.getElementById("nav_contact").style.textDecoration = "underline";
+    else if(subtitle === "광고 신청") document.getElementById("nav_question").style.textDecoration = "underline";
+    else if(subtitle === "문의하기") document.getElementById("nav_ask").style.textDecoration = "underline";
+</script>

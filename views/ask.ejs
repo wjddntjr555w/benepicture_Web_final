@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head> <% include ./static/head %> </head>
+
+<body>
+<header> <% include ./static/header %> </header>
+<section id="subtitle">
+    <div id="subtitle_box"> <%= subtitle %> </div>
+</section>
+<!-- 개인,기업    이름 이메일 전화번호 설명 -->
+
+<section id="main_section">
+    <div name="thanksMessage" class="bg-info"><h3><%= thanks%></h3></div>
+    <form method="post" enctype="multipart/form-data" id="indi_form" style="display : block;" class="ad_form">
+        <fieldset>
+            <legend>문의하기</legend>
+            <div class="form-group">
+                <label>문의 종류</label>
+                <select name="selected_kind">
+                    <option>앱 서비스 관련 문의</option>
+                    <option>홈페이지 관련 문의</option>
+                    <option>광고 관련 문의</option>
+                    <option>비지니스 관련 문의</option>
+                    <option>기타 문의</option>
+                </select>
+
+                <label>제목</label>
+                <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="제목" required>
+
+                <label>내용</label>
+                <textarea class="form-control" id="body" name="body" rows="6" placeholder="자세한 설명을 적어주세요." required></textarea>
+
+                <label>파일 첨부</label>
+                <input type="file" class="form-control-file ad_file" accept="image/*" name="image" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">문의 내용과 관련된 파일을 첨부해주세요.</small>
+            </div>
+            <button class="btn btn-info" id="btn_submit" type="submit">Submit</button>
+        </fieldset>
+    </form>
+</section>
+<footer> <% include ./static/footer %> </footer>
+
+<script>
+
+
+</script>
+
+</body>
+
+</html>

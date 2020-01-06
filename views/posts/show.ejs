@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <% include ../static/head %>
+</head>
+<body>
+<header>
+</header>
+<div class="posts">
+    <!-- main start-->
+
+    <!-- views/posts/show.ejs -->
+    <div class="show">
+        <h3><%= data.title %></h3>
+        <div class="time">Created at <br>
+            <%= data.createdAt.toLocaleDateString() %> <br>
+            <%= data.createdAt.toLocaleTimeString() %>
+        </div>
+        <br>
+        <% if(data.updatedAt) { %>
+            <div class="time">Updated at <br>
+                <%= data.updatedAt.toLocaleDateString() %> <br>
+                <%= data.updatedAt.toLocaleTimeString() %>
+            </div>
+        <% } %>
+        <p class="body"><%= data.body %><p>
+        <div class="tools">
+            <a href="/posts/<%=data._id%>/edit"><button>Edit</button></a>
+            <!-- Delete button here -->
+            <form class="btn_delete" action="/posts/<%=data._id%>?_method=delete" method="post" onsubmit="return button_delete();">
+                <input type="submit" value="Delete"></input>
+            </form>
+        </div>
+        <a href="/posts"><button>Back</button>
+    </div>
+
+    <!-- main end -->
+</div><!--posts end -->
+<footer>
+</footer>
+<script>
+    function button_delete(){
+        if(confirm("정말 삭제하시겠습니까?") == false){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+</script>
+</body>
+</html>

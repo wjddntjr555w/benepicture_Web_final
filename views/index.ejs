@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./static/head %>
+</head>
+
+<body>
+<header>
+    <% include ./static/header %>
+</header>
+
+<section id="main_section">
+    <div class="index_div">
+        <img src="./images/bp_main_image.png" class="index_image img-thumbnail">
+    </div>
+    <div class="index_div">
+        <div class="index_div_notice index_border">
+            <p style="font-size : 25px; display:inline;">공지사항</p>
+            <a class="far fa-plus-square" style="font-size : 20px" href="/notice"></a>
+            </button>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>제목</th>
+                </thead>
+                <tbody>
+                <% if (data.length < 6) var j = data.length; %>
+                <% if (data.length > 5) var j = 5; %>
+                <% for(var i = 0;i < j;i++){ %>
+                    <tr>
+                        <td><a href="/notice/<%= data[i]._id %>"><%= data[i].title %> </a></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="index_right_div index_div_bp index_border">
+            <div>
+                <p class="index_text_center" style="font-size: 15px;">국내 최초,무료로 복권서비스를 이용할 수 있는 어플리케이션</p>
+                <p class="index_text_center" style="font-size: 25px;">베네픽쳐</p>
+                <div style="text-align: center; margin-left: auto; margin-right: auto;">
+                <a href="./download/introduction_media.pdf">
+                    <button class="button button--winona button--border-thin button--round-s" data-text="매체 소개서"><span>매체 소개서</span>
+                    </button>
+                </a>
+                <a href="./download/introduction_product.pdf">
+                    <button class="button button--winona button--border-thin button--round-s" data-text="종합 상품 소개서">
+                        <span>종합 상품 소개서</span></button>
+                </a>
+                </div>
+            </div>
+            <div class="index_right_div_ad index_text_center">
+                <a href="/question" class="cta">
+                    <span>광고 신청하러가기</span>
+                    <span class="fas fa-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+        <div class="index_right_div index_div_ask index_border">
+            <p class="index_text_center">베네픽쳐에 대해 궁금한점들을 물어봐주세요</p>
+            <div class="index_right_div_ad index_text_center">
+                <a href="/ask" class="cta">
+                    <span>문의 하러가기</span>
+                    <span class="fas fa-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+<footer>
+    <% include ./static/footer %>
+</footer>
+
+</body>
+
+</html>

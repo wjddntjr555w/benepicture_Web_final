@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head> <% include ./static/head %> </head>
+
+<body>
+<header> <% include ./static/header %> </header>
+<section id="subtitle">
+    <div id="subtitle_box"> <%= subtitle %> </div>
+</section>
+<!-- 개인,기업    이름 이메일 전화번호 설명 -->
+
+<section id="main_section">
+    <div name="thanksMessage" class="bg-info"><h3><%= thanks%></h3></div>
+    <form method="post" enctype="multipart/form-data" id="indi_form" style="display : block;" class="ad_form">
+        <fieldset>
+            <legend>광고 문의</legend>
+            <div class="form-group">
+                <label class="radio-indi">
+                    <input type="radio" name="type" id="indi_indi" value="individual" checked> 개인
+                </label>
+                <label class="radio-corp">
+                    <input type="radio" name="type" id="indi_corp" value="corp"> 기업
+                </label>
+            </div>
+            <div class="form-group">
+                <label>성함</label>
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="성함" required>
+
+                <label>이메일</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="이메일" required>
+
+                <label>연락처</label>
+                <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp" placeholder="연락처" required>
+
+                <label>설명</label>
+                <textarea class="form-control" id="description" name="description" rows="6" placeholder="자세한 설명을 적어주세요." required></textarea>
+
+                <label>광고 파일 첨부 (사진, 동영상)</label>
+                <input type="file" class="form-control-file ad_file" accept="image/*" name="image" aria-describedby="fileHelp">
+                <input type="file" class="form-control-file ad_file" accept="image/*" name="image" aria-describedby="fileHelp">
+                <input type="file" class="form-control-file ad_file" accept="image/*" name="image" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">광고에 쓰일 이미지, 동영상을 첨부해주세요.</small>
+            </div>
+            <button class="btn btn-info" id="btn_submit" type="submit">Submit</button>
+            <small id="submitHelp" class="form-text text-muted">광고 문의일로부터 약 3영업일 이내로 처리됩니다.</small>
+        </fieldset>
+    </form>
+
+    <form method="post" enctype="multipart/form-data" id="corp_form" style="display : none;" class="ad_form">
+        <fieldset>
+            <legend>광고 문의</legend>
+            <div class="form-group">
+                <label class="radio-indi">
+                    <input type="radio" name="type" id="corp_indi" value="individual" checked> 개인
+                </label>
+                <label class="radio-corp">
+                    <input type="radio" name="type" id="corp_corp" value="corp"> 기업
+                </label>
+            </div>
+            <div class="form-group">
+                <label>기업명</label>
+                <input type="text" class="form-control" id="corp_name" name="corp_name" aria-describedby="emailHelp" placeholder="기업명" required>
+
+                <label>성함</label>
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="성함" required>
+
+                <label>이메일</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="이메일" required>
+                <br>
+                <label>연락처</label>
+                <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp" placeholder="연락처" required>
+
+                <label>설명</label>
+                <textarea class="form-control" id="description" name="description" rows="6" placeholder="자세한 설명을 적어주세요." required></textarea>
+
+                <label>광고 파일 첨부 (사진, 동영상)</label>
+                <input type="file" class="form-control-file ad_file" accept="image/*" name="image" aria-describedby="fileHelp">
+                <input type="file" class="form-control-file ad_file" accept="image/*" name="image" aria-describedby="fileHelp">
+                <input type="file" class="form-control-file ad_file" accept="image/*" name="image" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">광고에 쓰일 이미지를 첨부해주세요.</small>
+            </div>
+            <button class="btn btn-info" id="btn_submit" type="submit">Submit</button>
+            <small id="submitHelp" class="form-text text-muted">광고 문의일로부터 약 3영업일 이내로 처리됩니다.</small>
+        </fieldset>
+    </form>
+</section>
+<footer> <% include ./static/footer %> </footer>
+
+<script>
+    var indi = document.getElementById("indi_corp");
+    var corp = document.getElementById("corp_indi");
+    var i;
+
+
+
+        indi.addEventListener("click", function(){
+            document.getElementById("corp_corp").checked = true;
+
+            document.getElementById("indi_form").style.display = "none";
+            document.getElementById("corp_form").style.display = "block";
+        });
+
+
+        corp.addEventListener("click", function(){
+            document.getElementById("indi_indi").checked = true;
+
+            document.getElementById("corp_form").style.display = "none";
+            document.getElementById("indi_form").style.display = "block";
+        });
+
+</script>
+
+</body>
+
+</html>

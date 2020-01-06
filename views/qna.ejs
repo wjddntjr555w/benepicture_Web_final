@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head> <% include ./static/head %> </head>
+
+<body>
+<header> <% include ./static/header %> </header>
+
+<section id="subtitle">
+    <div id="subtitle_box"> <%= subtitle%> </div>
+</section>
+
+<section id="main_section">
+    <div class="list-group">
+        <% data.forEach(function(e){ %>
+            <a class="list-group-item"><h4><%= e.title %></h4></a>
+            <div class="panel-footer" style="display:none; white-space: pre-line;"><%= e.body%></div>
+        <% }) %>
+    </div>
+</section>
+
+<footer> <% include ./static/footer %> </footer>
+
+<script>
+    var acc = document.getElementsByClassName("list-group-item");
+    var i;
+
+    for(i=0;i<acc.length ; i++){
+        acc[i].addEventListener("click", function(){
+            this.classList.toggle("list-group-item-info");
+            var panel = this.nextElementSibling;
+            if (panel.style.display == "block"){
+                panel.style.display = "none";
+            }
+            else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+</body>
+
+</html>

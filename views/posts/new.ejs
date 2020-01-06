@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../static/head %>
+    <script type="text/javascript">
+        function actionSel(sel){
+
+            if(sel == '')
+            {
+                document.posts_form.action ='/posts/new';
+                document.posts_form.method = 'get';
+            }
+            else if(sel == 'notice')
+                document.posts_form.action ='/posts/notice';
+            else
+                document.posts_form.action ='/posts/qna';
+        }
+    </script>
+</head>
+<body>
+<header>
+</header>
+<div class="posts">
+    <!-- main start-->
+
+    <!-- views/posts/index.ejs -->
+    <div class="new">
+
+        <label class="col-sm-2 control-label">포스팅 종류</label>
+        <select multiple class="form-control" name="postSelect" id="postSelect" onchange="actionSel(this.value);">
+            <option value="notice">공지사항</option>
+            <option value="qna">QNA</option>
+        </select>
+
+        <form name="posts_form" method="post">
+            <label class="col-sm-2 control-label">제목</label>
+            <input class="form-control" type="text" name="post[title]" value="">
+            <label class="col-sm-2 control-label">내용</label>
+            <textarea class="form-control" rows="10" name="post[body]"></textarea>
+            <br>
+            <button class="form-control" type="submit">게시글 등록</button>
+        </form>
+        <br>
+        <a href="javascript:history.back()"><button class="btn btn-default">Back</button>
+    </div>
+
+    <!-- main end -->
+</div><!--posts end -->
+<footer>
+</footer>
+</body>
+</html>

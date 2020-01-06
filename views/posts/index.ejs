@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head> <% include ../static/head %> </head>
+<body>
+<header>
+
+</header>
+<div class="posts">
+    <!-- main start-->
+
+    <!-- views/posts/index.ejs -->
+    <div class="index">
+        <h3><a href="/posts/ads">광고 신청 보러가기 </a></h3>
+        <h3><a href="/posts/asks"> 문의 목록 보러가기</a></h3>
+        <% if(user) {%>
+            <a href="/logout" class="float_right"><button>Logout</button></a>
+            <a href="/users/<%= user._id %>" class="float_right"><button>My Profile (<%= user.nickname %>)</button></a>
+        <% } else { %>
+            <a href="/login" class="float_right"><button>Login</button></a>
+            <a href="/users/new" class="float_right"><button>Sign Up</button></a>
+        <% } %>
+        <h3> Notice List</h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>title</th>
+                <th>createdAt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% var j=data.length;%>
+            <% data.forEach(function(e){ %>
+                <tr>
+                    <td><%= j-- %></td>
+                    <td><a href="/posts/<%= e._id %>"> <%= e.title%></a></td>
+                    <td> <%= e.createdAt.toLocaleString()%></td>
+                </tr>
+            <% })%>
+            </tbody>
+        </table>
+        <a class="btn btn-default pull-right" href="/posts/new"><button>New</button></a>
+        <h3> QNA List</h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>title</th>
+                <th>createdAt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% var j=qna.length;%>
+            <% qna.forEach(function(e){ %>
+                <tr>
+                    <td><%= j-- %></td>
+                    <td><a href="/posts/<%= e._id %>"> <%= e.title%></a></td>
+                    <td> <%= e.createdAt.toLocaleString()%></td>
+                </tr>
+            <% })%>
+            </tbody>
+        </table>
+
+        <a class="btn btn-default pull-right" href="/posts/new"><button>New</button></a>
+    </div>
+
+    <!-- main end -->
+</div><!--posts end -->
+</body>
+</html>
