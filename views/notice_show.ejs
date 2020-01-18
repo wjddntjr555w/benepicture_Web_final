@@ -15,8 +15,7 @@
        <div class="panel-heading">
            <h3 class="panel-title"><%= data.title %> </h3>
        </div>
-       <div class="panel-body">
-           <%= data.body%>
+       <div class="panel-body"> <%- data.body.replace(/\r\n/g,'<br>');%>
        </div>
 
    </div>

@@ -13,6 +13,8 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var async = require('async');
 var dotenv = require('dotenv');
+const moment = require('moment');
+
 
 var AWS = require('aws-sdk');
 var fs = require('fs');
@@ -162,7 +164,7 @@ app.get('/notice', function(req,res){
   console.log("notice.ejs");
   Notice.find({}).sort('-createdAt').exec(function (err,notices){
       if(err) return res.json({success:false, message:err});
-      res.render("notice", {data:notices, user:req.user, subtitle : "공지사항"});
+      res.render("notice", {data:notices, user:req.user, subtitle : "공지사항", moment: moment});
   });
 });
 

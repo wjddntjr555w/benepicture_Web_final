@@ -24,7 +24,7 @@
         <tr>
             <td> <%= j-i %></td>
             <td><a href="/notice/<%= data[i]._id %>"><%= data[i].title %> </a></td>
-            <td><%= data[i].createdAt.toLocaleDateString() %></td>
+            <td><%= moment(data[i].createdAt).format('YYYY-MM-DD') %></td>
         </tr>
         <% }%>
         </tbody>

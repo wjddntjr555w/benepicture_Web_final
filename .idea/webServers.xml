@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="3b961a87-7bcf-49e5-a2fb-9e338138a3f6" name="ubuntu_server" url="http://13.125.93.42">
-        <fileTransfer host="13.125.93.42" port="22" privateKey="C:\Users\woodo\benepicture_nodejs_ec2_kor.pem" accessType="SFTP" keyPair="true">
+        <fileTransfer host="13.125.93.42" port="22" privateKey="$PROJECT_DIR$/../../benepicture_nodejs_ec2_kor.pem" accessType="SFTP" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
