@@ -11,7 +11,14 @@
         <% include ./static/header %>
     </header>
     <div class="index_div">
-        <img src="./images/bp_main_image.png" class="index_image img-thumbnail">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="images/img1.png" class="img_size">
+            </div>
+            <div class="mySlides fade">
+                <img src="images/img2.png" class="img_size">
+            </div>
+        </div>
     </div>
     <div class="index_div">
         <div class="index_div_notice index_border">
@@ -24,9 +31,7 @@
                     <th>제목</th>
                 </thead>
                 <tbody>
-                <% if (data.length < 6) var j = data.length; %>
-                <% if (data.length > 5) var j = 5; %>
-                <% for(var i = 0;i < j;i++){ %>
+                <% for(var i = 0;i < 4;i++){ %>
                     <tr>
                         <td><a href="/notice/<%= data[i]._id %>"><%= data[i].title %> </a></td>
                     </tr>
@@ -71,5 +76,23 @@
     <% include ./static/footer %>
 </footer>
 </body>
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+
+        setTimeout(showSlides, 4000); // Change image every 2 seconds
+    }
+
+</script>
 
 </html>

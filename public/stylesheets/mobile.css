@@ -402,6 +402,10 @@ select::-ms-expand {
     transform: scale(0.96);
 }
 /* index button end*/
+
+.slideshow-container{
+    padding-left : 30px;
+}
 /* FOOTER */
 footer {
     font-size: 9px;
