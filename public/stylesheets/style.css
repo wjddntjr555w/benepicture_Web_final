@@ -151,6 +151,7 @@ select::-ms-expand {
 
 .index_text_center{
   text-align: center;
+  font-weight: bold;
 }
 .index_div_notice{
   margin-top : 50px;
@@ -474,6 +475,17 @@ img {vertical-align: middle;}
 
 /* index slide show end*/
 
+.index_intro_ad{
+  margin-right : 10px;
+}
+
+.index_introduce{
+  color: #ffffff;
+  background-color : rgb(0, 168, 255);
+  font-size : 17px;
+  font-weight: bold;
+  border-color: rgb(249,189,0);
+}
 /* FOOTER */
 footer {
   display : block;

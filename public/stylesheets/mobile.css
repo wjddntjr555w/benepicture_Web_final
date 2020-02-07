@@ -356,7 +356,7 @@ select::-ms-expand {
     margin : auto;
     padding: 19px 22px;
     transition: all 0.2s ease;
-
+    display: inline-block;
 }
 .cta:before {
     content: "";

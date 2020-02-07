@@ -186,12 +186,12 @@ app.get('/contact', function(req,res){
   res.render("contact",{subtitle : "CONTACT US"});
 });
 
-app.get('/qna', function(req,res){
-  Qna.find({}).sort('-createdAt').exec(function (err,qnas){
-      if(err) return res.json({success:false, message:err});
-      res.render("qna",{subtitle : "FAQ",data:qnas});
-  });
-});
+// app.get('/qna', function(req,res){
+//   Qna.find({}).sort('-createdAt').exec(function (err,qnas){
+//       if(err) return res.json({success:false, message:err});
+//       res.render("qna",{subtitle : "FAQ",data:qnas});
+//   });
+// });
 
 app.get('/question', function(req,res){
     console.log("question.ejs");
