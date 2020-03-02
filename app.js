@@ -162,9 +162,17 @@ app.get('/', function(req,res){
 
 app.get('/notice', function(req,res){
   console.log("notice.ejs");
-  Notice.find({}).sort('-createdAt').exec(function (err,notices){
-      if(err) return res.json({success:false, message:err});
-      res.render("notice", {data:notices, user:req.user, subtitle : "공지사항", moment: moment});
+  var page = Math.max(1,req.query.page);
+  var limit = 10;
+  Notice.count({},function(err,count){
+      if(err) return res.json({success : false, message:err});
+      var skip = (page-1)*limit;
+      var maxPage = Math.ceil(count/limit);
+      var count = count;
+      Notice.find({}).sort('-createdAt').skip(skip).limit(limit).exec(function (err,notices){
+          if(err) return res.json({success:false, message:err});
+          res.render("notice", {data:notices,count : count ,page : page, maxPage : maxPage, user:req.user, subtitle : "공지사항", moment: moment});
+      });
   });
 });
 

@@ -486,6 +486,12 @@ img {vertical-align: middle;}
   font-weight: bold;
   border-color: rgb(249,189,0);
 }
+
+
+.pagination_div{
+  text-align: center;
+}
+
 /* FOOTER */
 footer {
   display : block;

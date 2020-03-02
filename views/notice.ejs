@@ -22,13 +22,30 @@
         <% var j=data.length;%>
         <% for(var i=0;i<data.length;i++){ %>
         <tr>
-            <td> <%= j-i %></td>
+            <td> <%= (j-i)+(maxPage-page)*(count%10)%></td>
             <td><a href="/notice/<%= data[i]._id %>"><%= data[i].title %> </a></td>
             <td><%= moment(data[i].createdAt).format('YYYY-MM-DD') %></td>
         </tr>
         <% }%>
         </tbody>
     </table>
+
+    <div class = "pagination_div">
+        <ul class="pagination">
+            <% var offset = 3;%>
+            <% for(i=1;i<=maxPage;i++){%>
+                <% if(i<=offset || i>maxPage-offset || (i>=page-(offset-1) && i<=page+(offset-1))){%>
+                    <% if(i != page){%>
+                        <li class="page-item">[<b><a class="page-link" href="/notice?page=<%= i%>"><%= i%></a></b>]</li>
+                    <% } else {%>
+                        <li class="page-item">[ <b><%= i%></b> ]</li>
+                    <% } %>
+                <% } else if(i == offset+1 || i == maxPage-offset){%>
+                    <li>...</li>
+                <% } %>
+            <% } %>
+        </ul>
+    </div>
 </section>
 
 <footer> <% include ./static/footer %> </footer>

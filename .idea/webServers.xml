@@ -10,6 +10,14 @@
           <option name="port" value="22" />
         </fileTransfer>
       </webServer>
+      <webServer id="3cc224ab-b85e-42a6-bba6-690e3934abb4" name="benepicture_server" url="http://15.164.112.250">
+        <fileTransfer host="15.164.112.250" port="22" privateKey="$PROJECT_DIR$/../../benepicuture_aws.ppk" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
