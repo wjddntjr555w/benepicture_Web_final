@@ -22,7 +22,7 @@
         <% var j=data.length;%>
         <% for(var i=0;i<data.length;i++){ %>
         <tr>
-            <td> <%= (j-i)+(maxPage-page)*(count%10)%></td>
+            <td> <%= count-i-((page-1)*10)%></td>
             <td><a href="/notice/<%= data[i]._id %>"><%= data[i].title %> </a></td>
             <td><%= moment(data[i].createdAt).format('YYYY-MM-DD') %></td>
         </tr>
