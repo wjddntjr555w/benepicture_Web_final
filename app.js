@@ -25,7 +25,6 @@ var app = express();
 
 dotenv.config();
 
-// mongoose.connect("mongodb://ID:PASSWORD@ds333248.mlab.com:33248/web_database",{useNewUrlParser : true,useUnifiedTopology : true});
 mongoose.connect(process.env.MONGO_DB,{useNewUrlParser: true,useUnifiedTopology : true});
 mongoose.set('userCreateIndex',true);
 
